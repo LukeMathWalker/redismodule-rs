@@ -1,7 +1,10 @@
 [package]
 name = "redis-module"
 version = "99.99.99"
-authors = ["Gavrie Philipson <gavrie@redis.com>", "Guy Korland <guy.korland@redis.com>"]
+authors = [
+    "Gavrie Philipson <gavrie@redis.com>",
+    "Guy Korland <guy.korland@redis.com>",
+]
 edition = "2021"
 build = "build.rs"
 description = "A toolkit for building Redis modules in Rust"
@@ -10,6 +13,10 @@ repository = "https://github.com/RedisLabsModules/redismodule-rs"
 readme = "README.md"
 keywords = ["redis", "plugin"]
 categories = ["database", "api-bindings"]
+
+[[example]]
+name = "calc"
+crate-type = ["cdylib"]
 
 [[example]]
 name = "hello"
@@ -139,7 +146,7 @@ log = "0.4"
 anyhow = "1"
 redis = "0.23"
 lazy_static = "1"
-redis-module-macros = { path = "./redismodule-rs-macros"}
+redis-module-macros = { path = "./redismodule-rs-macros" }
 redis-module = { path = "./", default-features = false }
 
 [build-dependencies]
@@ -148,8 +155,18 @@ cc = "1"
 
 [features]
 default = ["min-redis-compatibility-version-6-0"]
-min-redis-compatibility-version-7-4 = ["redis-module/min-redis-compatibility-version-7-4"]
-min-redis-compatibility-version-7-2 = ["redis-module/min-redis-compatibility-version-7-2"]
-min-redis-compatibility-version-7-0 = ["redis-module/min-redis-compatibility-version-7-0"]
-min-redis-compatibility-version-6-2 = ["redis-module/min-redis-compatibility-version-6-2"]
-min-redis-compatibility-version-6-0 = ["redis-module/min-redis-compatibility-version-6-0"]
+min-redis-compatibility-version-7-4 = [
+    "redis-module/min-redis-compatibility-version-7-4",
+]
+min-redis-compatibility-version-7-2 = [
+    "redis-module/min-redis-compatibility-version-7-2",
+]
+min-redis-compatibility-version-7-0 = [
+    "redis-module/min-redis-compatibility-version-7-0",
+]
+min-redis-compatibility-version-6-2 = [
+    "redis-module/min-redis-compatibility-version-6-2",
+]
+min-redis-compatibility-version-6-0 = [
+    "redis-module/min-redis-compatibility-version-6-0",
+]
